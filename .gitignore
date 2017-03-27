@@ -253,4 +253,30 @@ paket-files/
 
 # Modern Business Sitecore Starter
 /*.html
+/xsl
+/temp
+/sitecore_files
+/sitecore modules
+/sitecore
+/Properties
+/layouts
+/Areas
+/App_Start
+/App_Data
+/App_Config
+/App_Browsers
 
+/Website.csproj
+/webedit.css
+/Web.Release.config
+/Web.Debug.config
+/Web.config.Oracle
+/Web.config
+/packages.config
+/notes.txt
+/modernbusiness.sln
+/Global.asax
+/default.js
+/default.htm.sitedown
+/default.css
+/Default.aspx
