@@ -1,0 +1,40 @@
+﻿@using Sitecore.Data.Items;
+@using Sitecore.Collections;
+@using Sitecore.Data.Fields;
+@using Sitecore.Resources.Media;
+@using Sitecore.Links;
+@using ModernBusiness;
+@using ModernBusiness.Helpers;
+
+@model ModernBusiness.Models.CalloutsModel
+
+@{ 
+}
+@if (Model.CalloutFolder == null || Model.Callouts.Count==0)
+{
+    <div class="error">@Model.PlaceholderMessage</div>
+}
+else
+{
+    if (!string.IsNullOrEmpty(Model.CalloutFolder[FieldNames.CalloutContainer.Heading]))
+    {
+        <div class="col-lg-12">
+            <h2 class="page-header">@Html.Sitecore().Field(FieldNames.CalloutContainer.Heading, Model.CalloutFolder)</h2>
+        </div>
+    }
+    foreach (Item callout in Model.Callouts)
+    {
+        <div class="col-md-@callout[FieldNames.Callout.ColumnWidth]">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4><i class="fa fa-fw @callout["Icon"]"></i> @Html.Sitecore().Field(FieldNames.Callout.Heading, callout)</h4>
+                </div>
+                <div class="panel-body">
+                    <p>@Html.Sitecore().Field(FieldNames.Callout.Intro, callout)</p>
+                    <a href="@SitecoreViewHelper.ResolveLinkField(callout.Fields[FieldNames.__Button.Link])" 
+                       class="btn btn-default">@Html.Sitecore().Field(FieldNames.__Button.Label, callout)</a>
+                </div>
+            </div>
+        </div>
+    }
+}

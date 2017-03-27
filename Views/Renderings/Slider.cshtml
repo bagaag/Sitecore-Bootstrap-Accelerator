@@ -1,0 +1,39 @@
+﻿@using ModernBusiness.Helpers;
+@model ModernBusiness.Models.SliderModel
+
+<!-- Header Carousel -->
+@if (Model.Slides != null && Model.Slides.Count > 0)
+{
+    <header id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            @foreach (var slide in Model.Slides)
+            {
+                <li data-target="#myCarousel" data-slide-to="@slide.Index" class="@(slide.IsFirst ? "active":"")"></li>
+            }
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            @foreach (var slide in Model.Slides)
+            {
+                <div class="item @(slide.IsFirst ? "active":"")">
+                    <div class="fill" style="background-image:url('@slide.ImageSrc');"></div>
+                    <div class="carousel-caption">
+                        <h2>@Html.Sitecore().Field(FieldNames.SliderSlide.Caption, slide.InnerItem)</h2>
+                    </div>
+                </div>
+            }
+        </div>
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+    </header>
+}
+else
+{
+    <div class="error">@Model.PlaceholderMessage</div>
+}

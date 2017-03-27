@@ -1,0 +1,11 @@
+﻿@using System
+@using Sitecore.Mvc
+@* @using Sitecore.Mvc.Analytics.Extensions *@
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+@Html.Sitecore().Placeholder("headercomponents1")
+<!-- Page Content -->
+<div class="container">
+    @Html.Sitecore().Placeholder("components1")
+</div>
