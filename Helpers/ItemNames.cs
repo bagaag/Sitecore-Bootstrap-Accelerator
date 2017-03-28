@@ -12,6 +12,7 @@
         {
             public const string CalloutContainer = "Callout Container";
             public const string SliderContainer = "Slider Container";
+            public const string Callout = "Callout";
         }
 
         public static class Options

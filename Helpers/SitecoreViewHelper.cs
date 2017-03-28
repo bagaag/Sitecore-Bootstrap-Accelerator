@@ -1,4 +1,6 @@
 ﻿using Sitecore.Data.Fields;
+using Sitecore.Data.Items;
+using Sitecore.Resources.Media;
 
 namespace ModernBusiness
 {
@@ -32,6 +34,18 @@ namespace ModernBusiness
                     // condition will never be met
                     return lf.Url;
             }
+        }
+
+        public static string ResolveImageSource(Item item, string fieldName)
+        {
+            ImageField imgField = (ImageField)item.Fields[fieldName];
+            return MediaManager.GetMediaUrl(imgField.MediaItem);
+        }
+
+        public static string ResolveImageAlt(Item item, string fieldName)
+        {
+            ImageField imgField = (ImageField)item.Fields[fieldName];
+            return imgField.MediaItem["Alt"];
         }
     }
 }

@@ -1,7 +1,5 @@
 ﻿using Sitecore.Data.Items;
 using Sitecore.Diagnostics;
-using Sitecore.Data.Fields;
-using Sitecore.Resources.Media;
 using ModernBusiness.Helpers;
 
 namespace ModernBusiness.Models
@@ -25,9 +23,7 @@ namespace ModernBusiness.Models
         {
             get
             {
-                ImageField imgField = ((ImageField)InnerItem.Fields[FieldNames.SliderSlide.Image]);
-                string src = MediaManager.GetMediaUrl(imgField.MediaItem);
-                return src;
+                return SitecoreViewHelper.ResolveImageSource(InnerItem, FieldNames.SliderSlide.Image);
             }
         }
 

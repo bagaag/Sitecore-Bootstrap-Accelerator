@@ -26,7 +26,14 @@ namespace ModernBusiness.Models
             {
                 Format = CalloutFolder[FieldNames.CalloutContainer.CalloutStyle];
 
-                Callouts = CalloutFolder.Children;
+                Callouts = new List<CalloutModel>();
+
+                //TODO: Handle items in list field if specified instead of Children
+                foreach (Item callout in CalloutFolder.Children)
+                {
+                    Callouts.Add(new CalloutModel(CalloutFolder, callout));
+                }
+
                 if (Callouts.Count == 0)
                 {
                     PlaceholderMessage = "Callout folder is empty. " + CalloutFolder.ID;
@@ -36,7 +43,7 @@ namespace ModernBusiness.Models
 
         public Item CalloutFolder { get; private set; }
 
-        public ChildList Callouts { get; private set; }
+        public List<CalloutModel> Callouts { get; private set; }
 
         public string PlaceholderMessage { get; private set; }
 

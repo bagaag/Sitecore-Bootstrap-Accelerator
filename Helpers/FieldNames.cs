@@ -16,7 +16,8 @@
             public const string ColumnWidth = "Column Width";
             public const string Heading = "Heading";
             public const string Intro = "Intro";
-            public const string Link = "Link";
+            public const string CalloutStyle = "Callout Style";
+            public const string Icon = "Icon";
         }
 
         public static class SliderSlide
@@ -29,6 +30,11 @@
         {
             public const string Label = "Button Text";
             public const string Link = "Link";
+        }
+
+        public static class __TeaserImamge
+        {
+            public const string Image = "Image";
         }
     }
 }
