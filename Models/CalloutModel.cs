@@ -21,13 +21,15 @@ namespace ModernBusiness.Models
             get
             {
                 // use folder style unless specified at the individual callout level
-                if (InnerItem[FieldNames.Callout.CalloutStyle] == ItemNames.Options.CalloutStyles.Inherit)
+                string innerItemCalloutStyle = InnerItem[FieldNames.Callout.CalloutStyle];
+                string folderCalloutStyle = _folder[FieldNames.CalloutContainer.CalloutStyle];
+                if (string.IsNullOrEmpty(innerItemCalloutStyle) || innerItemCalloutStyle == ItemNames.Options.CalloutStyles.Inherit)
                 {
-                    return _folder[FieldNames.CalloutContainer.CalloutStyle];
+                    return folderCalloutStyle;
                 }
                 else
                 {
-                    return InnerItem[FieldNames.Callout.CalloutStyle];
+                    return innerItemCalloutStyle;
                 }
             }
         }

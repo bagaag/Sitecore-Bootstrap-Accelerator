@@ -27,5 +27,12 @@
             }
         }
 
+        public static class ContentFolderItems
+        {
+            public const string Slider = "Slider";
+            public const string Callouts = "Callouts";
+            public const string Portfolio = "Portfolio";
+        }
+
     }
 }

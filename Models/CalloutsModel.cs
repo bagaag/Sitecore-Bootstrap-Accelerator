@@ -28,10 +28,20 @@ namespace ModernBusiness.Models
 
                 Callouts = new List<CalloutModel>();
 
-                //TODO: Handle items in list field if specified instead of Children
+                // add children to callouts collection
                 foreach (Item callout in CalloutFolder.Children)
                 {
                     Callouts.Add(new CalloutModel(CalloutFolder, callout));
+                }
+
+                // if there are no children, try the Callouts field
+                if (Callouts.Count == 0)
+                {
+                    Sitecore.Data.Fields.MultilistField mlf = CalloutFolder.Fields[FieldNames.CalloutContainer.Callouts];
+                    foreach (Item callout in mlf.GetItems())
+                    {
+                        Callouts.Add(new CalloutModel(CalloutFolder, callout));
+                    }
                 }
 
                 if (Callouts.Count == 0)

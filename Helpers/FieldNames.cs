@@ -9,6 +9,7 @@
         {
             public const string Heading = "Heading";
             public const string CalloutStyle = "Callout Style";
+            public const string Callouts = "Callouts";
         }
 
         public static class Callout

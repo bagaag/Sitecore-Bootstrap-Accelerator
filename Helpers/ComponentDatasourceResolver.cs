@@ -25,6 +25,13 @@ namespace ModernBusiness.Helpers
             PlaceholderMessage = "Could not resolve Data Source.";
             Item item = null;
 
+            // allow the data source name to be specified in a rendering property
+            string paramDataSourceName = rendering.Properties["DataSourceName"];
+            if (datasourceName == null && paramDataSourceName != null) 
+            {
+                datasourceName = paramDataSourceName;
+            }
+
             // set item to datasource if its set
             if (!string.IsNullOrEmpty(rendering.DataSource))
             {
