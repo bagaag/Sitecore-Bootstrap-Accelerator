@@ -69,14 +69,18 @@ namespace ModernBusiness.Helpers
                     if (datasourceName != null)
                     {
                         DatasourceItem = contentFolder.Children
-                            .Where(child => child.TemplateName == datasourceTemplate 
-                                && child.Name == datasourceName).First();
+                            .Where(child => child.TemplateName == datasourceTemplate
+                                && child.Name == datasourceName).FirstOrDefault();
                     }
                     // otherwise get first item with specified template
                     else
                     {
                         DatasourceItem = contentFolder.Children
-                            .Where(child => child.TemplateName == datasourceTemplate).First();
+                            .Where(child => child.TemplateName == datasourceTemplate).FirstOrDefault();
+                    }
+                    if (DatasourceItem == null)
+                    {
+                        PlaceholderMessage = $"{ItemNames.ContentFolder} folder does not contain a suitable datasource item.";
                     }
                 }
                 else

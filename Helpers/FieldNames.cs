@@ -37,5 +37,12 @@
         {
             public const string Image = "Image";
         }
+
+        public static class ContentSection
+        {
+            public const string Heading = "Heading";
+            public const string Style = "Style";
+            public const string Content = "Content";
+        }
     }
 }

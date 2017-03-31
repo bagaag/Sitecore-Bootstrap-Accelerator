@@ -59,7 +59,7 @@ namespace ModernBusiness.Models
             {
                 // determine link from button link if defined, else item URL
                 var link = Sitecore.Links.LinkManager.GetItemUrl(InnerItem);
-                if (InnerItem.TemplateName != ItemNames.Templates.Callout)
+                if (InnerItem.TemplateName == ItemNames.Templates.Callout)
                 {
                     link = SitecoreViewHelper.ResolveLinkField(InnerItem.Fields[FieldNames.__Button.Link]);
                 }

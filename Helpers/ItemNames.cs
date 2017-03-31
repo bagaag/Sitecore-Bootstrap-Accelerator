@@ -13,6 +13,7 @@
             public const string CalloutContainer = "Callout Container";
             public const string SliderContainer = "Slider Container";
             public const string Callout = "Callout";
+            public const string ContentSection = "Content Section";
         }
 
         public static class Options
@@ -32,6 +33,7 @@
             public const string Slider = "Slider";
             public const string Callouts = "Callouts";
             public const string Portfolio = "Portfolio";
+            public const string ContentSection = "Content Section";
         }
 
     }

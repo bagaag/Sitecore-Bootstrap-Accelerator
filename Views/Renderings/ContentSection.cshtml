@@ -1,0 +1,30 @@
+﻿@using ModernBusiness.Helpers;
+@using ModernBusiness.Models;
+
+@model ContentSectionModel
+
+@if (Model.InnerItem == null)
+{
+    <div class="error">@Model.PlaceholderMessage</div>
+}
+else
+{
+    <!-- Content Section -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">@Html.Sitecore().Field(FieldNames.ContentSection.Heading, Model.InnerItem)</h2>
+        </div>
+        <div class="col-md-6">
+            @Html.Sitecore().Field(FieldNames.ContentSection.Content, Model.InnerItem)
+            @if (!string.IsNullOrEmpty(Model.InnerItem[FieldNames.__Button.Label]))
+            {
+                <a class="btn btn-default" href="@Model.ButtonLink">@Html.Sitecore().Field(FieldNames.__Button.Label, Model.InnerItem)</a>
+            }
+        </div>
+        <div class="col-md-6">
+            @Html.Sitecore().Field(FieldNames.__TeaserImamge.Image, Model.InnerItem, new { @class = "img-responsive" })
+        </div>
+    </div>
+    <!-- /.row -->
+    <hr>
+}
